@@ -141,4 +141,12 @@ mod tests {
         assert_eq!(iter.next(), None);
         assert_eq!(iter.next_back(), None);
     }
+
+    #[test]
+    fn inf() {
+        let mut iter = flatten((0..).map(|i| 0..i));
+        assert_eq!(iter.next(), Some(0));
+        assert_eq!(iter.next(), Some(0));
+        assert_eq!(iter.next(), Some(1));
+    }
 }
